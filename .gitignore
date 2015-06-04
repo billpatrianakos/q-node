@@ -1,0 +1,12 @@
+##
+# We generally ignore 3 kinds of files:
+#  1. Build resuts
+#  2. Environment configuration (unless required by the project)
+#  3. Project dependencies
+##
+
+## Build results
+
+## Environment/config files
+node_modules/
+.nvmrc

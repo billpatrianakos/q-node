@@ -1,0 +1,30 @@
+{
+  "name": "QClient",
+  "version": "0.0.1",
+  "description": "Aplo Q API wrapper",
+  "homepage": "https://aploquote.com",
+  "main": "qclient.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AploCode/q-node.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aploquote",
+    "insurance",
+    "quotes",
+    "api"
+  ],
+  "author": "Aplo <bill@aploquote.com> (https://aploquote.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "hash-files": "^1.0.0",
+    "load-grunt-tasks": "^3.2.0",
+    "time-grunt": "^1.2.1"
+  }
+}
