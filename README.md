@@ -24,6 +24,14 @@ Installation is simple through npm: `npm install qclient`
 
 ### License Verification
 
+## Contributing and Development
+
+### Branching Strategy
+
+### Testing
+
+__You'll get extra points if you contribute to our test suite. We really take notice of that.__
+
 ## License
 
 Q is licensed under the MIT license. You may have unlimited use of it for personal or commercial purposes, free of charge, with no strings attached. You can change it and share it or keep those changes to yourself. You could make money off this code. You can basically do anything you want so long as its legal and doesn't hurt anyone. __Here's the catch:__ We assume no liability if you blow yourself up. That's all.
