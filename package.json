@@ -1,5 +1,5 @@
 {
-  "name": "QClient",
+  "name": "qclient",
   "version": "0.0.1",
   "description": "Aplo Q API wrapper",
   "homepage": "https://aploquote.com",
