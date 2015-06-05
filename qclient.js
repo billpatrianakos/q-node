@@ -47,8 +47,22 @@ QClient.prototype = {
     return hmac.read();
   },
 
-  getSubsidy: function(state, zip, demographics) {
-    var endpoint      = ['/plans', state, zip].join('/'),
+  /**
+   * Get Subsidy
+   * -----------
+   * Returns a subsidy and an array of plans available
+   * to the consumer based on their rating and demographic
+   * info. Eligible plans already have cost sharing reductions
+   * included.
+   *
+   * `state` [String] - 2 letter state abbreviation
+   * `zip` [String, Number] - 5 digit zip code
+   * `demographics` [Object] - Object containing rating information. See
+   *    Q API docs for more on the structure of this object.
+   * `cb` [Function] - Function called when response is available
+   */
+  getSubsidy: function(state, zip, demographics, cb) {
+    var endpoint      = ['/plans', state, zip].join('/');
         demographics  = JSON.stringify(demographics);
 
     var request = http.request({
@@ -56,7 +70,10 @@ QClient.prototype = {
       path: endpoint,
       port: 9292,
       method: 'POST',
-      headers: { 'Authorization': [this.clientId, this.signature(endpoint, demographics)].join(':') }
+      headers: {
+        'Authorization': this.clientId + ':' + this.signature(endpoint, demographics),
+        'Content-Length': demographics.length
+      }
     }, function(response) {
       var reply = '';
       response.on('data', function(chunk) {
@@ -64,17 +81,12 @@ QClient.prototype = {
       });
 
       response.on('end', function() {
-        console.log(reply);
-
-        return reply;
+        return cb(reply);
       });
     });
 
     request.write(demographics);
-
-    console.log(endpoint, [this.clientId, this.signature(endpoint, demographics)].join(':'));
-
-    return request.end();
+    request.end();
   }
 };
 
