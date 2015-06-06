@@ -39,10 +39,20 @@ module.exports = function(grunt) {
     // jshint
     jshint: {
       all: ['**/*.js', '!node_modules/**/*']
+    },
+
+    // todos
+    todos: {
+      options: {
+        verbose: false
+      },
+      all: {
+        src: ['README.md', 'Gruntfile.js', 'qclient.js']
+      }
     }
   });
 
   grunt.registerTask('default', 'develop');
-  grunt.registerTask('develop', ['watch']);
+  grunt.registerTask('develop', ['todos', 'watch']);
   grunt.registerTask('codesign', function() {console.log('Code to add signature to README will go here.');});
 };
