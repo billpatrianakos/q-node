@@ -91,7 +91,7 @@ QClient.prototype = {
       });
 
       response.on('end', function() {
-        return cb(reply);
+        return cb(reply); // TODO: Notify client of errors
       });
     });
 
