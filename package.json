@@ -1,6 +1,6 @@
 {
   "name": "q-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "API library for the Aplo Q insurance quoting API.",
   "homepage": "https://aploquote.com",
   "main": "qclient.js",

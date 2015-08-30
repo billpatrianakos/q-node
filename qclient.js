@@ -92,7 +92,11 @@ QClient.prototype = {
       });
 
       response.on('end', function() {
-        return cb(reply); // TODO: Notify client of errors
+        return cb(null, reply);
+      });
+
+      response.on('error', function(err) {
+        return cb(err, reply);
       });
     });
 
