@@ -10,3 +10,4 @@
 ## Environment/config files
 node_modules/
 .nvmrc
+test/config.js
