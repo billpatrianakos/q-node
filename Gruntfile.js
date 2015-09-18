@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 
     // jshint
     jshint: {
-      all: ['**/*.js', '!node_modules/**/*']
+      all: ['**/*.js', 'test/*.js', '!node_modules/**/*']
     },
 
     // todos
