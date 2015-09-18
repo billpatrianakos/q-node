@@ -143,8 +143,8 @@ QClient.prototype = {
   // Get Plan Info
   // -------------
   // Gets plan information for a single plan
-  getPlanInfo: function(planId, state, county) {
-    var endpoint = ['/plans/info', planId, state, county.replace(/ /g, '_')];
+  getPlanInfo: function(planId, state, county, cb) {
+    var endpoint = ['/plans/info', planId, state, county.replace(/ /g, '_')].join('/');
 
     https.get({
       host: this.host,
