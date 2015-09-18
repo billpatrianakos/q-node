@@ -138,6 +138,41 @@ QClient.prototype = {
     }).on('error', function(err) {
       return cb('Unhandled exception', err.message);
     });
+  },
+
+  // Get Plan Info
+  // -------------
+  // Gets plan information for a single plan
+  getPlanInfo: function(planId, state, county) {
+    var endpoint = ['/plans/info', planId, state, county.replace(/ /g, '_')];
+
+    https.get({
+      host: this.host,
+      path: endpoint,
+      port: this.port,
+      headers: {
+        'Authorization': this.clientId + ':' + this.signature(endpoint),
+        'Content-Type': 'application/json'
+      }
+    }, function(response) {
+      var reply = '';
+
+      response.on('data', function(data) {
+        reply += data;
+      });
+
+      response.on('end', function() {
+        if (response.statusCode === 200) {
+          return cb(null, reply);
+        } else {
+          return cb('Non-200 status returned', response.statusCode);
+        }
+      });
+
+      response.on('error', function(err) {
+        return cb(err, err.message);
+      });
+    });
   }
 };
 
