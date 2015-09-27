@@ -130,7 +130,17 @@ QClient.prototype = {
       })
       .on('end', function() {
         if (response.statusCode === 200) {
-          return cb(null, reply);
+          var resultObj = JSON.parse(reply);
+
+          resultObj.licenses.forEach(function(license) {
+            license.issued_date = new Date(license.issued_date);
+
+            if (license.expiration_date !== 'PERPETUAL')
+              license.expiration_date = new Date(license.expiration_date);
+
+            license.last_updated = new Date('license.last_updated');
+          });
+          return cb(null, resultObj);
         } else {
           return cb('Non-200 status returned', response.statusCode);
         }
