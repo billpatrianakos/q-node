@@ -14,5 +14,6 @@ module.exports = {
   clientSecret: 'ENTER YOUR CLIENT SECRET HERE',
   options: { // You'll never need to use this. Here for project maintainers but you can use it if you know how/have a good reason to.
     host: 'q.aploquote.com'
-  }
+  },
+  npn: 1234 // CHANGE THIS to a valid National Producer Number you own
 };
