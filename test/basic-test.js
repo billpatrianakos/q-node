@@ -5,7 +5,8 @@
 var expect  = require('chai').expect,
     QClient = require('../qclient'),
     config  = require('./config.js'),
-    Q       = new QClient(config.clientId, config.clientSecret, config.options);
+    Q       = new QClient(config.clientId, config.clientSecret, config.options),
+    _       = require('lodash');
 
 describe('QClient', function() {
   it('should set client ID and secret as properties during initialization', function() {
@@ -33,27 +34,41 @@ describe('QClient', function() {
       Q.getLicenses(config.npn, function(err, response) {
         if (err) done(err);
 
-        expect(response).to.be.a('string');
-
-        var parsed = JSON.parse(response);
-
         describe('#getLicenses -> response.licenses', function() {
           it('should have a status of "ok"', function() {
-            expect(parsed.status).to.equal('ok');
+            expect(response.status).to.equal('ok');
           });
 
           it('should be an array', function() {
-            expect(parsed.licenses).to.be.an('array');
+            expect(response.licenses).to.be.an('array');
           });
 
           it('should contain a collection of objects', function() {
-            parsed.licenses.forEach(function(license) {
+            response.licenses.forEach(function(license) {
               expect(license).to.be.an('object');
             });
 
-            describe('response.licenses', function() {
+            describe('response.license', function() {
               it('should have expected keys', function() {
-                expect(parsed.licenses[0]).to.have.all.keys(['state', 'number', 'issued_date', 'expiration_date', 'resident_status', 'loa', 'loa_code', 'last_updated']);
+                console.log('got here');
+                expect(response.licenses[0]).to.have.all.keys(['state', 'number', 'issued_date', 'expiration_date', 'resident_status', 'loa', 'loa_code', 'last_updated']);
+              });
+
+              it('has at least two keys that are date objects', function() {
+                expect(response.licenses[0].issued_date).to.be.a('date');
+                expect(response.licenses[0].last_updated).to.be.a('date');
+              })
+
+              describe('license.expiration_date', function() {
+                it('should have a value of "PERPETUAL" or be a valid date object', function() {
+                  expect(response.licenses[0]).to.satisfy(function(license) {
+                    if (_.isString(license.expiration_date)) {
+                      return license.expiration_date === 'PERPETUAL';
+                    } else {
+                      return _.isDate(license.expiration_date);
+                    }
+                  });
+                });
               });
             });
           });
