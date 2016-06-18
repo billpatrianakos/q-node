@@ -20,7 +20,7 @@ function QClient(clientId, secretToken, options) {
   var opts = (typeof options === 'undefined') ? {} : options;
 
   // Allow overriding options. Do not use this outside of development.
-  this.host = (typeof opts.host === 'undefined') ? 'q.aploquote.com' : opts.host;
+  this.host = (typeof opts.host === 'undefined') ? 'q.aplo.me' : opts.host;
   this.port = (typeof opts.port === 'undefined') ? 443 : opts.host;
 
   this.setApiKey(clientId);
