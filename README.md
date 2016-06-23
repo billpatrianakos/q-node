@@ -2,7 +2,7 @@
 
 > Node.js API wrapper for Aplo's Q API
 
-__IMPORTANT:__ The current 0.0.2 release includes support for a single API endpoint. It is not production ready. Hold tight until we launch in about a week for full support for all API endpoints along with a well tested, well documented API client.
+__Please Note:__ QClient currently only supports the `/plans/` endpoint which returns a subsidy estimate and an array of insurance plans based on the eligibility data you pass to it. Support for additional endpoints are planned for future releases.
 
 ## What is Q?
 
