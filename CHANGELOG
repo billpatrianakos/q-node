@@ -1,0 +1,17 @@
+# Change log
+
+> I manually maintain this file for each release for the benefit of people, not machines. If you see a mistake please feel free to submit a pull request with your proposed changes.
+
+## v0.4.0
+
+This release updates the hostname to point to the new domain for the Q API, adds additional tests, and is the first release that disassociates itself with the Aplo organization completely.
+
+- Update hostname to point to the new domain name where Q is being hosted.
+- The API QClient connects to has no association with the now defunct Aplo LLC
+- All tests are run against the live API server (staging has been shut down)
+- Client ID and Secret Token are exported as env vars via shell script
+- Changelogs are now manually written. It's too easy to pipe the output of `git log` out to a file and call it a day but I'd prefer a `CHANGELOG` that makes as much sense to humans as possible while leaving my Git history as terse as possible
+
+## Pre-release (Versions <= v0.3.1)
+
+The 0.3.x series of releases were all alpha quality. The decision was made to only support the `/plans/` endpoint for the time being.
