@@ -105,7 +105,7 @@ QClient.prototype = {
   },
 
   // Get licenses
-  //
+  // ------------
   // Get a list of valid health insurance licenses
   // for an agent based on their NPN number
   //
