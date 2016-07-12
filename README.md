@@ -4,6 +4,7 @@
 
 __IMPORTANT:__ The current 0.3.0 release includes support for a single API endpoint. It is not production ready. The maintenance of this package is now being run by an individual, not a company so contributions would be appreciated.
 
+
 ## What is Q?
 
 Q, not to be confused with the Node.js promise library, is the internal insurance quoting API the company formerly known as Aplo created to get quotes. Q provides endpoints for generating "raw" insurance quotes, personalized quotes including ACA/Obamacare subsidies, and the ability to check for active insurance agent licenses.

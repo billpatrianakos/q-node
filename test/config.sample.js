@@ -10,10 +10,10 @@
 // the options configuration and should keep it 
 // commented out.
 module.exports = {
-  clientId: 'ENTER YOUR CLIENT ID HERE',
-  clientSecret: 'ENTER YOUR CLIENT SECRET HERE',
+  clientId: 'YOUR-CLIENT-ID-HERE',
+  clientSecret: 'YOUR-CLIENT-SECRET',
   options: { // You'll never need to use this. Here for project maintainers but you can use it if you know how/have a good reason to.
-    host: 'q.aploquote.com'
+    host: 'q.aplo.me'
   },
   npn: 1234 // CHANGE THIS to a valid National Producer Number you own
 };
