@@ -2,7 +2,7 @@
   "name": "q-client",
   "version": "0.3.2",
   "description": "API library for the Aplo Q insurance quoting API.",
-  "homepage": "https://aploquote.com",
+  "homepage": "https://github.com/AploCode/q-node",
   "main": "qclient.js",
   "repository": {
     "type": "git",
@@ -12,12 +12,11 @@
     "test": "mocha test/"
   },
   "keywords": [
-    "aploquote",
     "insurance",
     "quotes",
     "api"
   ],
-  "author": "Aplo <bill@aploquote.com> (https://aploquote.com)",
+  "author": "Bill Patrianakos <bill@billpatrianakos.me> (http://billpatrianakos.me)",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.2.0",
